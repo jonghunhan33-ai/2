@@ -69,13 +69,13 @@ button { cursor: pointer; border: none; background: none; }
 }
 .header-inner { 
     display: flex; 
-    /* 1. 로고 1.5배 확대 후 레이아웃 조정 */
+    /* 1. 로고 1.5배 확대 후 레이아웃 조정 및 높이 증가 (2cm) */
     align-items: flex-start; /* 로고가 위쪽에 정렬되도록 수정 */
     justify-content: space-between; 
     gap: 16px; 
-    padding-top: 15px; /* 상단 패딩 추가 */
-    padding-bottom: 15px; /* 하단 패딩 추가 */
-    min-height: 64px; 
+    padding-top: 15px; /* 상단 패딩 추가 (높이 증가 요청 반영) */
+    padding-bottom: 15px; /* 하단 패딩 추가 (높이 증가 요청 반영) */
+    min-height: 64px; /* 기존 값 유지하지만 패딩으로 높이 증가 */
 }
 .logo { 
     /* 1. 요청: 로고와 문구 크기를 1.5배 키우기 */
