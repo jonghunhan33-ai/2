@@ -1,0 +1,489 @@
+/* style.css */
+/* ========== Reset & Base ========== */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+html, body { 
+    scroll-behavior: smooth; 
+}
+body {
+    /* 3. 기본 글자 크기 증가 (15px -> 16px) */
+    font-family: "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+    color: #111827;
+    background: #ffffff;
+    line-height: 1.6;
+    font-size: 16px; 
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; }
+
+/* ========== Variables ========== */
+:root {
+    --primary-color: #0b1220; /* 진한 네이비 */
+    --secondary-color: #ff9900; /* 오렌지/골드 */
+    --text-dark: #111827;
+    --text-light: #e5e7eb;
+    --bg-light: #f8fafc; /* 밝은 배경 */
+    --bg-dark: #0f172a; /* 어두운 배경 */
+    --whyus-btn-bg: #1f2937; /* 버튼 배경색 추가 */
+}
+
+/* ========== Layout Helpers ========== */
+.container { 
+    max-width: 1280px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+.text-center { 
+    text-align: center; 
+}
+.section-padded { 
+    padding: 96px 0; 
+}
+.section-light { 
+    background: var(--bg-light); 
+}
+.section-title { 
+    /* 3. 섹션 타이틀 크기 증가 (28px -> 34px) */
+    font-size: 34px; 
+    font-weight: 700; 
+    color: var(--primary-color);
+    margin: 0 0 32px; 
+}
+.lead { 
+    /* 3. 리드 텍스트 크기 증가 (18px -> 20px) */
+    font-size: 20px; 
+    color: #374151; 
+}
+
+/* ========== Header & Navigation ========== */
+.site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--primary-color); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.header-inner { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 16px; 
+    min-height: 64px; 
+}
+.logo { 
+    /* 3. 로고 폰트 크기 증가 (20px -> 22px) */
+    font-weight: 800; 
+    letter-spacing: 0.5px; 
+    font-size: 22px;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.logo img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.main-nav ul { 
+    display: flex; 
+    gap: 24px; /* 간격 증가 */
+}
+.main-nav a {
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 10px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+    white-space: nowrap;
+    /* 3. 네비게이션 폰트 크기 증가 (15px -> 16px) */
+    /* 1. 요청 사항: 홈, 회사 소개, 서비스, 문의하기 텍스트 1.5배 증가 (16px * 1.5 = 24px) */
+    font-size: 24px; /* <--- 수정됨 */
+}
+.main-nav a:hover, .main-nav a.active {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.language-selector select {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: 1px solid var(--text-light);
+    padding: 8px 12px;
+    border-radius: 6px;
+    /* 3. 셀렉터 폰트 크기 증가 (14px -> 15px) */
+    font-size: 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+/* ========== Hero Section (Home) ========== */
+.hero {
+    height: 85vh; 
+    background-size: cover !important;
+    background-position: center center !important;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-image 0.5s ease-in-out; 
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.hero-title { 
+    /* 3. 히어로 타이틀 크기 증가 (42px -> 52px) */
+    font-size: 52px; 
+    font-weight: 700; 
+    margin-bottom: 16px;
+}
+.hero-subtitle { 
+    /* 3. 히어로 서브타이틀 크기 증가 (22px -> 26px) */
+    font-size: 26px; 
+    font-weight: 300; 
+    margin-bottom: 40px; 
+    opacity: 0.9;
+}
+
+.hero-btns a {
+    padding: 14px 32px; /* 버튼 패딩 증가 */
+    margin: 0 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 18px; /* 버튼 폰트 크기 증가 */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* 2, 3. 요청 사항: 일반 버튼 스타일 추가 (히어로 버튼과 동일하게) */
+.btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+
+/* ========== Promise & Why Us Sections (Home/About) ========== */
+.grid-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 40px;
+}
+.feature-item, .value-item, .service-item {
+    flex: 1 1 300px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px; 
+    padding: 30px; 
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-item i, .value-item i, .service-item i { 
+    /* 3. 아이콘 크기 증가 (32px -> 40px) */
+    font-size: 40px; 
+    color: var(--secondary-color); 
+    margin-bottom: 20px; 
+}
+.feature-item h4, .value-item h4, .service-item h4 { 
+    /* 3. 항목 타이틀 크기 증가 (20px -> 24px) */
+    margin: 6px 0 10px; 
+    font-size: 24px; 
+    color: var(--primary-color);
+}
+.feature-item p, .value-item p, .service-item p {
+    /* 3. 항목 내용 폰트 크기 증가 (15px -> 16px) */
+    font-size: 16px;
+    color: #4b5563;
+}
+
+/* Why Us Specific 스타일 */
+#why-us {
+    background: #f3f4f6; 
+    color: var(--text-dark); 
+}
+
+/* 5. "회사 소개" 버튼 스타일 변경 - .btn-primary로 대체되어 주석 처리함 */
+/*
+#why-us .btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    margin-top: 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: var(--whyus-btn-bg); 
+    color: var(--text-light); 
+    border: 2px solid var(--secondary-color); 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#why-us .btn-secondary:hover {
+    background-color: var(--secondary-color); 
+    color: var(--primary-color); 
+    border-color: var(--primary-color);
+}
+*/
+
+/* ========== Page Hero (About, Service, Contact) ========== */
+.page-hero {
+    height: 40vh; 
+}
+.page-hero-content h1 {
+    /* 3. 페이지 히어로 타이틀 크기 증가 (40px -> 48px) */
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+.page-hero-content p {
+    /* 3. 페이지 히어로 서브타이틀 크기 증가 (18px -> 20px) */
+    font-size: 20px;
+    font-weight: 300;
+}
+
+/* ========== Management Section (About) ========== */
+/* 추가: 경영진 그리드 스타일 */
+.management-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+.manager-item {
+    flex: 1 1 300px;
+    max-width: 400px; /* 최대 너비 설정 */
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.manager-item img {
+    /* 이미지 원형/정사각형 스타일 추가 */
+    width: 150px; 
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%; /* 원형 이미지 */
+    margin-bottom: 20px;
+    border: 4px solid var(--secondary-color); /* 포인트 색상 테두리 */
+}
+.manager-item h4 {
+    /* 3. 매니저 이름 크기 증가 (20px -> 22px) */
+    font-size: 22px;
+}
+.manager-item em {
+    /* 3. 매니저 직책 폰트 크기 증가 (15px -> 16px) */
+    display: block;
+    font-style: normal;
+    font-size: 16px;
+    color: #4b5563;
+    margin-bottom: 15px;
+}
+.manager-item p {
+    /* 3. 매니저 설명 폰트 크기 증가 (15px -> 16px) */
+    font-size: 16px;
+    color: #4b5563;
+}
+
+/* ========== Contact Section ========== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+.contact-col {
+    padding: 20px;
+    text-align: left;
+}
+.form-section {
+    order: 3; /* 모바일에서 마지막에 오도록 순서 조정 */
+}
+.office-details {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+.office-details h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+.office-details p {
+    /* 3. 연락처 정보 폰트 크기 증가 (15px -> 16px) */
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #4b5563;
+}
+.office-details i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form-section input, 
+.form-section textarea, 
+.form-section select {
+    /* 3. 폼 입력창 폰트 크기 증가 (16px -> 17px) */
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 17px;
+}
+.form-section textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+.form-section button {
+    /* 3. 폼 버튼 폰트 크기 증가 (16px -> 18px) */
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+.form-section button:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.map-col {
+    grid-column: span 2;
+    padding: 20px;
+}
+.map-col h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+/* ========== Footer ========== */
+.site-footer { 
+    background: var(--bg-dark); 
+    color: var(--text-light); 
+    padding: 40px 0; 
+    margin-top: 40px; 
+    /* 3. 푸터 폰트 크기 증가 (15px -> 16px) */
+    font-size: 16px; 
+}
+.footer-offices {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 30px;
+    text-align: center; 
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.footer-office-info {
+    /* 4. 푸터 정보 섹션 중앙 정렬 */
+    text-align: center;
+}
+.footer-office-info .logo {
+    /* 4. 로고를 중앙에 배치하기 위해 */
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.footer-office-info p {
+    margin-bottom: 8px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+/* ========== Responsive Design (기존 유지) ========== */
+@media (max-width: 900px) {
+    .header-inner {
+        flex-wrap: wrap;
+        min-height: initial;
+        padding: 10px 20px;
+    }
+    .main-nav {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .main-nav ul {
+        justify-content: center;
+        gap: 10px;
+    }
+    .language-selector {
+        margin-left: auto;
+    }
+    /* 1. 모바일에서 네비게이션 폰트 크기 조정 */
+    .main-nav a {
+        font-size: 18px; /* 모바일에서는 폰트 크기 조정 */
+    }
+    .hero { height: 60vh; }
+    .hero-title { font-size: 38px; }
+    .hero-subtitle { font-size: 22px; }
+    .feature-item, .value-item { flex: 1 1 100%; }
+    .management-grid { gap: 20px; }
+    .footer-offices { grid-template-columns: 1fr; text-align: center; }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .map-col {
+        grid-column: span 1; /* 모바일에서 한 줄에 하나씩 */
+    }
+    .map-col h3 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-nav ul { flex-wrap: wrap; }
+    .hero-btns { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .hero-btns a { margin: 0; width: 80%; }
+}
