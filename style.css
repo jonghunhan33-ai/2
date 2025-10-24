@@ -78,8 +78,8 @@ button { cursor: pointer; border: none; background: none; }
     min-height: 64px; /* 기존 값 유지하지만 패딩으로 높이 증가 */
 }
 .logo { 
-    /* 1. 요청: 로고와 문구 크기를 1.5배 키우기 */
-    transform: scale(1.5);
+    /* 1. 요청: 로고와 문구 크기를 1.2배로 재조정 (이전 1.5배) */
+    transform: scale(1.2);
     transform-origin: left; /* 왼쪽 위를 기준으로 크기 조정 */
     margin-right: 20px; /* 크기 조정 후 오른쪽 여백 추가 */
     white-space: nowrap; /* 줄바꿈 없이 한 줄에 표시 */
@@ -107,8 +107,8 @@ button { cursor: pointer; border: none; background: none; }
     padding: 10px 0;
     transition: color 0.3s, border-bottom 0.3s;
     white-space: nowrap;
-    /* 3. 네비게이션 폰트 크기 증가 (15px -> 16px) */
-    font-size: 16px; 
+    /* 3. 네비게이션 폰트 크기 증가 (16px -> 18px) - 2포인트 증가 요청 반영 */
+    font-size: 18px; 
 }
 .main-nav a:hover, .main-nav a.active {
     color: var(--secondary-color);
@@ -433,8 +433,8 @@ button { cursor: pointer; border: none; background: none; }
     text-align: center;
 }
 .footer-office-info .logo {
-    /* 1. 푸터 로고도 1.5배 확대 */
-    transform: scale(1.5);
+    /* 1. 푸터 로고도 1.2배로 재조정 (이전 1.5배) */
+    transform: scale(1.2);
     transform-origin: center; /* 중앙을 기준으로 크기 조정 */
     margin-bottom: 15px;
     
@@ -479,9 +479,9 @@ button { cursor: pointer; border: none; background: none; }
     .language-selector {
         margin-left: auto;
     }
-    /* 1. 모바일에서 네비게이션 폰트 크기 조정 */
+    /* 1. 모바일에서 네비게이션 폰트 크기 조정 (2포인트 증가 요청 반영) */
     .main-nav a {
-        font-size: 18px; /* 모바일에서는 폰트 크기 조정 */
+        font-size: 20px; /* 데스크톱 18px 대비 균형을 위해 20px로 설정 */
     }
     .hero { height: 60vh; }
     .hero-title { font-size: 38px; }
